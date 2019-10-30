@@ -1,12 +1,13 @@
 // @flow
 import React, { Component } from 'react'
 import {
+  WebView,
   View,
   ActivityIndicator,
   Platform,
   StyleSheet,
 } from 'react-native'
-import { WebView } from 'react-native-webview'
+import { WebView as RNWebView } from 'react-native-webview'
 import * as FileSystem from 'expo-file-system'
 import Constants from 'expo-constants'
 
@@ -201,7 +202,7 @@ class PdfReader extends Component<Props, State> {
       return (
         <View style={[styles.container, style]}>
           {!noLoader && !ready && <Loader />}
-          <WebView
+          <RNWebView
             onLoad={()=>{
               this.setState({ready: true});
               if(onLoad) {
